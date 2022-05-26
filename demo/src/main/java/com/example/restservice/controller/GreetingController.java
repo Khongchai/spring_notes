@@ -1,14 +1,12 @@
-package com.example.demo.controller;
+package com.example.restservice.controller;
 
-import com.example.demo.restservice.Greeting;
+import com.example.restservice.restservice.Greeting;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-// TODO continue
-// https://spring.io/guides/gs/rest-service/
 @RestController
 public class GreetingController{
     private static final String template = "Hello, %s!";
@@ -18,7 +16,4 @@ public class GreetingController{
     public Greeting greeting(@RequestParam(value = "name", defaultValue = "World") String name){
         return new Greeting(counter.incrementAndGet(), String.format(template, name));
     }
-
-
-
 }
